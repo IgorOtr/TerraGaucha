@@ -2,5 +2,4 @@
 
 use Illuminate\Support\Facades\Route;
 
-
-Route::get('/', function () { return view('index'); })->name('home');
+Route::get('/', function () { return view('index'); })->name('home'); //ROTA QUE CARREGA A HOME DO SITE

@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contacts', function (Blueprint $table) {
+        Schema::create('location_images', function (Blueprint $table) {
             $table->id();
-            $table->string('cont_name');
-            $table->string('cont_email');
-            $table->string('cont_phone');
+            $table->string('img_name');
+            $table->string('loc_id');
             $table->timestamps();
         });
     }

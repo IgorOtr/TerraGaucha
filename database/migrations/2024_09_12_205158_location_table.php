@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('loc_name');
             $table->string('loc_phone');
             $table->string('loc_address');
-            $table->string('loc_resume');
-            $table->string('loc_images');            
+            $table->longText('loc_resume');          
+            $table->string('loc_status');            
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('locations');
     }
 };

@@ -48,14 +48,14 @@ body {
     color: #ffffff;
 }
 
-.add__location__form input {
+.add__location__form input, .form-select {
     background-color: transparent;
     border: none;
     border-bottom: 1px solid #99262d;
     color: #ffffff;
 }
 
-.form-control:focus {
+.form-control:focus, .form-select:focus{
     box-shadow: none;
     background-color: transparent;
     border-bottom: 1px solid #99262d;

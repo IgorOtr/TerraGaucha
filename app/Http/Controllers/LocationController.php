@@ -28,7 +28,6 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
 
         $validated = $request->validate([
             'loc_name' => 'required',
@@ -43,10 +42,13 @@ class LocationController extends Controller
         $location->loc_phone = $validated['loc_phone'];
         $location->loc_address = $validated['loc_address'];
         $location->loc_resume = $validated['loc_resume'];
+        $location->loc_images = '';
 
-        if ($candidato->save()) {
+        if ($location->save()) {
 
-            return redirect()->route('manage-locations')->with('message', 'Location criada com sucesso.');
+            $message = 'Location criada com sucesso.';
+
+            return view('Admin.manage-locations', compact('message'));
         }
     }
 

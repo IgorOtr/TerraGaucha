@@ -1,18 +1,26 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LocationController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::get('/', function () { return view('index'); })->name('home'); 
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/faqs', function () { return view('faqs'); })->name('faqs');
+
+Route::group(["prefix" => "Admin"], function () {
+
+    Route::get('/', function () { return view('Admin.index'); })->name('home-admin'); 
+
+    Route::group(["prefix" => "Locations"], function () {
+
+        Route::get('/manage', [LocationController::class, 'index'])->name('manage-locations'); 
+        Route::post('/add-location', [LocationController::class, 'store'])->name('add-location');
+    });
+
+    // Route::group(["prefix" => "Contact"], function () {
+
+    //     Route::get('/manage', [LocationController::class, 'index'])->name('manage-locations'); 
+    //     Route::post('/add-location', [LocationController::class, 'store'])->name('add-location');
+    // });
+
 });

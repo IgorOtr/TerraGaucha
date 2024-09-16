@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Location;
+use App\Models\LocationImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LocationController extends Controller
 {
@@ -12,7 +14,8 @@ class LocationController extends Controller
      */
     public function index()
     {
-        return view('Admin.manage-locations');
+        $locations = DB::table('locations')->get();
+        return view('Admin.manage-locations', compact('locations'));
     }
 
     /**
@@ -28,27 +31,50 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-
+       
         $validated = $request->validate([
             'loc_name' => 'required',
             'loc_phone' => 'required',
             'loc_address' => 'required',
-            'loc_resume' => 'required'
+            'loc_resume' => 'required',
+            'loc_status' => 'required'
         ]);
 
         $location = new Location();
+        $locationImages = new LocationImage();
+
+        $imgCapa = $request->file('loc_capa');
+        $img_name = md5($imgCapa->getClientOriginalName().time()) . '.' . $imgCapa->getClientOriginalExtension();
+        $imgCapa->move('assets/img/capas_locations', $img_name);
 
         $location->loc_name = $validated['loc_name'];
         $location->loc_phone = $validated['loc_phone'];
         $location->loc_address = $validated['loc_address'];
         $location->loc_resume = $validated['loc_resume'];
-        $location->loc_images = '';
+        $location->loc_status = $validated['loc_status'];
+        $location->loc_capa = $img_name;
 
         if ($location->save()) {
 
-            $message = 'Location criada com sucesso.';
+            $img = $request->file('loc_images');
 
+            for ($i = 0; $i < count($img); $i++) { 
+            
+                $imgs = $img[$i];
+                $imgs_name = md5($imgs->getClientOriginalName().time()) . '.' . $imgs->getClientOriginalExtension();
+                
+                if ($imgs->move('assets/img/locations', $imgs_name)) {
+                    
+                    $locationImages->img_name = $imgs_name;
+                    $locationImages->loc_id = $location->id;
+                    
+                    $locationImages->save();
+                }
+            }   
+
+            $message = 'Location criada com sucesso.';
             return view('Admin.manage-locations', compact('message'));
+
         }
     }
 

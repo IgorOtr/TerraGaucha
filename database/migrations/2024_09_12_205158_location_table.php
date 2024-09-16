@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('loc_phone');
             $table->string('loc_address');
             $table->longText('loc_resume');          
-            $table->string('loc_status');            
+            $table->string('loc_status');   
+            $table->string('loc_capa');   
             $table->timestamps();
         });
     }

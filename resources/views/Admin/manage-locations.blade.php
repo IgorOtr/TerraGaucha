@@ -7,7 +7,7 @@
 
 
         @if (isset($message))
-          <div class="alert alert-success alert-dismissible" role="alert">
+          <div class="alert alert-success alert-dismissible mb-5" role="alert">
             <div class="d-flex">
               <div>
                 <!-- Download SVG icon from http://tabler-icons.io/i/check -->
@@ -59,15 +59,22 @@
                             </div>
                         </div>
                         <div class="row mb-3">
+                            <div class="col mb-3">
+                                <div class="form-label">Foto foto de capa</div>
+                                <input class="file" type="file" name="loc_capa" accept=".png, .jpg, .jpeg, .webp" multiple required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
                             <div class="col m-3">
                                 <label class="form-label">Sobre o Local</label>
                                 <textarea class="form-control" name="loc_resume" rows="6" placeholder="Escreva aqui sobre o Local:" required></textarea>
                             </div>
                         </div>
+                        
                         <div class="row mb-3">
                             <div class="col mb-3">
                                 <div class="form-label">Adicione fotos do local <span style="font-size: 12px">(max: 6 imagens)</span></div>
-                                <input class="file" type="file" name="loc_images[]" multiple required>
+                                <input class="file" type="file" name="loc_images[]" accept=".png, .jpg, .jpeg, .webp" multiple required>
                             </div>
                             <div class="col mb-3">
                                 <div class="form-label">Escolha um Status</div>
@@ -106,6 +113,36 @@
                             </div>
                         </div>
                     </div> --}}
+                </div>
+            </div>
+            <div class="row mb-5 mt-3">
+                <div class="col-md-12 text-center">
+                    <h1>Todas as Locations</h1>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                          <h2 class="card-title">Location title</h2>
+                          <div class="card-actions">
+                            <a href="#" class="btn">
+                              <!-- Download SVG icon from http://tabler-icons.io/i/phone -->
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path></svg>
+                              Phone
+                            </a>
+                            <a href="#" class="btn">
+                              <!-- Download SVG icon from http://tabler-icons.io/i/mail -->
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path><path d="M3 7l9 6l9 -6"></path></svg>
+                              Email
+                            </a>
+                          </div>
+                        </div>
+                        <div class="card-body p-0">
+                          
+                        </div>
+                      </div>
                 </div>
             </div>
         </div>

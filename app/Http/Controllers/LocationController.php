@@ -6,6 +6,7 @@ use App\Models\Location;
 use App\Models\LocationImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class LocationController extends Controller
 {
@@ -26,6 +27,19 @@ class LocationController extends Controller
         //
     }
 
+    public function toAscii($str, $replace = array(), $delimiter = '-')
+	{
+		if (!empty($replace)) {
+			$str = str_replace((array)$replace, ' ', $str);
+		}
+		$clean = str_replace('�', 'c', $str);
+		$clean = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
+		$clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $clean);
+		$clean = strtolower(trim($clean, '-'));
+		$clean = preg_replace("/[\/_|+ -]+/", $delimiter, $clean);
+
+		return $clean;
+	}
     /**
      * Store a newly created resource in storage.
      */
@@ -52,30 +66,37 @@ class LocationController extends Controller
         $location->loc_address = $validated['loc_address'];
         $location->loc_resume = $validated['loc_resume'];
         $location->loc_status = $validated['loc_status'];
+        $slug = self::toAscii($validated['loc_name'], ' ');
+        $location->slug = $slug;
+
         $location->loc_capa = $img_name;
 
-        if ($location->save()) {
+        $location->save();
 
-            $img = $request->file('loc_images');
+        $img = $request->file('loc_images');
 
-            for ($i = 0; $i < count($img); $i++) { 
+        for ($i = 0; $i < count($img); $i++) { 
             
-                $imgs = $img[$i];
-                $imgs_name = md5($imgs->getClientOriginalName().time()) . '.' . $imgs->getClientOriginalExtension();
+            $imgs = $img[$i];
+            $imgs_name = md5($imgs->getClientOriginalName().time()) . '.' . $imgs->getClientOriginalExtension();
                 
-                if ($imgs->move('assets/img/locations', $imgs_name)) {
+            if ($imgs->move('assets/img/locations', $imgs_name)) {
                     
-                    $locationImages->img_name = $imgs_name;
-                    $locationImages->loc_id = $location->id;
+                $locationImages->img_name = $imgs_name;
+                $locationImages->loc_id = $location->id;
                     
-                    $locationImages->save();
-                }
-            }   
+                $image = $locationImages::create([
+                    "img_name" => $imgs_name,
+                    "loc_id" => $location->id
+                ]);
 
-            $message = 'Location criada com sucesso.';
-            return view('Admin.manage-locations', compact('message'));
-
+                sleep(1);
+            } 
+    
         }
+
+        $message = 'Location criada com sucesso.';
+        return redirect()->route("manage-locations")->with(['message' => $message]);
     }
 
     /**
@@ -89,9 +110,10 @@ class LocationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Location $location)
+    public function edit(string $slug)
     {
-        //
+        $locations = DB::table('locations')->where('slug', $slug)->get();
+        return view('Admin.edit-locations', compact('locations'));
     }
 
     /**
@@ -105,8 +127,19 @@ class LocationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Location $location)
+    public function destroy(string $slug)
     {
-        //
+        $location = DB::table('locations')->where('slug', $slug)->get();
+
+        if (!$location) {
+            return abort(404);
+
+        } else {
+            $location = DB::table('locations')->where('slug', $slug)->delete();
+
+            $message = 'Location removida com sucesso.';
+            return redirect()->route("manage-locations")->with(['message' => $message]);
+        }
+
     }
 }

@@ -7,21 +7,26 @@
 
 
         @if (isset($message))
-          <div class="alert alert-success alert-dismissible mb-5" role="alert">
-            <div class="d-flex">
-              <div>
-                <!-- Download SVG icon from http://tabler-icons.io/i/check -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon alert-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l5 5l10 -10"></path></svg>
-              </div>
-              <div>
-                Nova Location adicionada com sucesso!
-              </div>
+            <div class="alert alert-success alert-dismissible mb-5" role="alert">
+                <div class="d-flex">
+                    <div>
+                        <!-- Download SVG icon from http://tabler-icons.io/i/check -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="icon alert-icon">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M5 12l5 5l10 -10"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        Nova Location adicionada com sucesso!
+                    </div>
+                </div>
+                <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
             </div>
-            <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
-          </div>
         @endif
 
-        
+
         <div class="container">
             <div class="row mb-4">
                 <div class="col-md-12 text-center">
@@ -60,8 +65,9 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col mb-3">
-                                <div class="form-label">Foto foto de capa</div>
-                                <input class="file" type="file" name="loc_capa" accept=".png, .jpg, .jpeg, .webp" multiple required>
+                                <div class="form-label">Foto de capa</div>
+                                <input class="file" type="file" name="loc_capa" accept=".png, .jpg, .jpeg, .webp"
+                                    multiple required>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -70,21 +76,23 @@
                                 <textarea class="form-control" name="loc_resume" rows="6" placeholder="Escreva aqui sobre o Local:" required></textarea>
                             </div>
                         </div>
-                        
+
                         <div class="row mb-3">
                             <div class="col mb-3">
-                                <div class="form-label">Adicione fotos do local <span style="font-size: 12px">(max: 6 imagens)</span></div>
-                                <input class="file" type="file" name="loc_images[]" accept=".png, .jpg, .jpeg, .webp" multiple required>
+                                <div class="form-label">Adicione fotos do local <span style="font-size: 12px">(max: 6
+                                        imagens)</span></div>
+                                <input class="file" type="file" name="loc_images[]"
+                                    accept=".png, .jpg, .jpeg, .webp" multiple required>
                             </div>
                             <div class="col mb-3">
                                 <div class="form-label">Escolha um Status</div>
                                 <select name="loc_status" class="form-select" style="height: 40px;">
-                                  <option value="" selected>Selecione uma opção</option>
-                                  <option value="Coming soon">Coming soon</option>
-                                  <option value="Available">Available</option>
-                                  <option value="Unavailable">Unavailable</option>
+                                    <option value="" selected>Selecione uma opção</option>
+                                    <option value="Coming soon">Coming soon</option>
+                                    <option value="Available">Available</option>
+                                    <option value="Unavailable">Unavailable</option>
                                 </select>
-                              </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col mb-3">
@@ -122,28 +130,77 @@
             </div>
 
             <div class="row mb-3">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                          <h2 class="card-title">Location title</h2>
-                          <div class="card-actions">
-                            <a href="#" class="btn">
-                              <!-- Download SVG icon from http://tabler-icons.io/i/phone -->
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path></svg>
-                              Phone
-                            </a>
-                            <a href="#" class="btn">
-                              <!-- Download SVG icon from http://tabler-icons.io/i/mail -->
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path><path d="M3 7l9 6l9 -6"></path></svg>
-                              Email
-                            </a>
-                          </div>
+
+                @foreach ($locations as $location)
+
+                    <div class="modal modal-blur fade" id="modal-large{{ $location->id }}" tabindex="-1" style="display: none;"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 style="color: #000000;" class="modal-title">Tem certeza que deseja apagar a Location de {{ $location->loc_name }}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Se concordar, todos os dados serão apagador permanentamente.
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn me-auto" data-bs-dismiss="modal">Cancelar</button>
+                                    <a href="/Admin/Locations/delete/{{ $location->slug }}" class="btn btn-danger">Apagar</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body p-0">
-                          
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">{{ $location->loc_name }}</h2>
+                                <div class="card-actions">
+                                    <a href="/Admin/Locations/edit/{{ $location->slug }}" class="btn btn-warning">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/phone -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
+                                            <path
+                                                d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
+                                            <path d="M16 5l3 3" />
+                                        </svg>
+                                        Editar
+                                    </a>
+
+                                    <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-large{{ $location->id }}">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/mail -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-trash">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <path d="M4 7l16 0" />
+                                            <path d="M10 11l0 6" />
+                                            <path d="M14 11l0 6" />
+                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                        </svg>
+                                        Deletar
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-body"
+                                style="
+                                    background-image: url({{ asset('assets/img/capas_locations/' . $location->loc_capa) }});
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    padding: 120px; !important">
+                            </div>
                         </div>
-                      </div>
-                </div>
+                    </div>
+                @endforeach
+
             </div>
         </div>
     </div>

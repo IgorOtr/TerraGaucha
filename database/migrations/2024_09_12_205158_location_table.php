@@ -19,6 +19,7 @@ return new class extends Migration
             $table->longText('loc_resume');          
             $table->string('loc_status');   
             $table->string('loc_capa');   
+            $table->string('slug');   
             $table->timestamps();
         });
     }

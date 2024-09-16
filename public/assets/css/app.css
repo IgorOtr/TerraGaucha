@@ -89,3 +89,15 @@ body {
 .btn:first-child:active{
     background-color: #99262e79;
 }
+
+.card {
+    border-color: #99262d;
+}
+
+.card-header {
+    background-color: #99262d;
+}
+
+.card-title {
+    color: #ffffff;
+}

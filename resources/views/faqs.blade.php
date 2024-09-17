@@ -32,6 +32,9 @@
     <meta name="twitter:data1" content="3 minutes" class="yoast-seo-meta-tag" />
 </head>
 <body>
+@include('includes/head')
+
+@include('includes/navbar')
     
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N2KN3PWT" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -85,4 +88,5 @@
             <p>If you’re interested in working with us, we ask that you go to <a href="https://terragaucha.com/careers/">terragaucha.com/careers</a> to find out more about it.</p>
     </div>
 </body>
+@include('includes/footer')
 </html>

@@ -85,7 +85,7 @@
                         </div>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
                         data-bs-auto-close="false" role="button" aria-expanded="false">
                         <span
@@ -119,7 +119,7 @@
 
                         </div>
                     </div>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>

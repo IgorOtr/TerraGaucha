@@ -39,43 +39,55 @@
                         @csrf
                         <input type="hidden" name="id" value="{{ $locations[0]->id }}">
                         <div class="row">
-                            <div class="col m-3">
+                            <div class="col mb-3">
                                 <label class="form-label">Nome</label>
-                                <input type="text" name="loc_name" class="form-control" value="{{ $locations[0]->loc_name }}">
+                                <input type="text" name="loc_name" class="form-control" value="{{ $locations[0]->loc_name }}" required>
                             </div>
-                            <div class="col m-3">
+                            <div class="col mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" name="loc_email" class="form-control" value="{{ $locations[0]->loc_email }}" required>
+                            </div>
+                            <div class="col mb-3">
                                 <label class="form-label">Telefone</label>
-                                <input type="text" name="loc_phone" class="form-control" value="{{ $locations[0]->loc_phone }}">
+                                <input type="text" name="loc_phone" class="form-control" value="{{ $locations[0]->loc_phone }}" required>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col m-3">
+                            <div class="col mb-3">
                                 <label class="form-label">Endereço</label>
-                                <input type="text" name="loc_address" class="form-control" value="{{ $locations[0]->loc_address }}">
+                                <input type="text" name="loc_address" class="form-control" value="{{ $locations[0]->loc_address }}" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col mt-3 mb-3">
+                                <div class="form-label">Foto utilizada atualmente</div>
+                                <img width="600" id="imagePreview" src="{{ asset('assets/img/capas_locations/'.$locations[0]->loc_capa) }}" alt="">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col mb-3">
+                                <div class="form-label">Atualizar foto de capa</div>
+                                <input class="file" type="file" name="loc_capa" id="imageUpload" onchange="previewImage()" accept=".png, .jpg, .jpeg, .webp" multiple required>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col mb-3">
-                                <div class="form-label">Foto de capa</div>
-                                <input class="file" type="file" name="loc_capa" accept=".png, .jpg, .jpeg, .webp" multiple required>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col m-3">
                                 <label class="form-label">Sobre o Local</label>
-                                <textarea class="form-control" name="loc_resume" rows="6" placeholder="Escreva aqui sobre o Local:">{{ $locations[0]->loc_resume }}</textarea>
+                                <textarea class="form-control" name="loc_resume" rows="6" placeholder="Escreva aqui sobre o Local:" required>{{ $locations[0]->loc_resume }}</textarea>
                             </div>
                         </div>
                         
                         <div class="row mb-3">
-                            <div class="col mb-3">
+                            {{-- <div class="col mb-3">
                                 <div class="form-label">Adicione fotos do local <span style="font-size: 12px">(max: 6 imagens)</span></div>
                                 <input class="file" type="file" name="loc_images[]" accept=".png, .jpg, .jpeg, .webp" multiple required>
-                            </div>
+                            </div> --}}
                             <div class="col mb-3">
                                 <div class="form-label">Escolha um Status</div>
-                                <select name="loc_status" class="form-select" style="height: 40px;">
-                                  <option value="" selected>Selecione uma opção</option>
+                                <select name="loc_status" class="form-select" style="height: 40px;"required>
+                                  <option value="{{ $locations[0]->loc_status }}" selected>{{ $locations[0]->loc_status }}</option>
                                   <option value="Coming soon">Coming soon</option>
                                   <option value="Available">Available</option>
                                   <option value="Unavailable">Unavailable</option>
@@ -116,6 +128,23 @@
 
     {{-- Desenvolva a partir daqui --}}
 </section>
+
+<script>
+    function previewImage() {
+        const input = document.getElementById('imageUpload');
+        const preview = document.getElementById('imagePreview');
+
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = (e) => {
+            preview.src = e.target.result;
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
 
 
 @include('Admin/includes/footer')

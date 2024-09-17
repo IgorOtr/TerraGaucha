@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('loc_name');
             $table->string('loc_phone');
+            $table->string('loc_email');
             $table->string('loc_address');
             $table->longText('loc_resume');          
             $table->string('loc_status');   

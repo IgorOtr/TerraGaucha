@@ -6,7 +6,7 @@
     <div class="page-wrapper">
 
 
-        @if (isset($message))
+        @if (request('success'))
             <div class="alert alert-success alert-dismissible mb-5" role="alert">
                 <div class="d-flex">
                     <div>
@@ -19,7 +19,7 @@
                         </svg>
                     </div>
                     <div>
-                        Nova Location adicionada com sucesso!
+                        {{request('success')}}
                     </div>
                 </div>
                 <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
@@ -48,17 +48,21 @@
                     <form action="{{ route('add-location') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
-                            <div class="col m-3">
+                            <div class="col mb-3">
                                 <label class="form-label">Nome</label>
                                 <input type="text" name="loc_name" class="form-control" required>
                             </div>
-                            <div class="col m-3">
+                            <div class="col mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" name="loc_email" class="form-control" required>
+                            </div>
+                            <div class="col mb3">
                                 <label class="form-label">Telefone</label>
                                 <input type="text" name="loc_phone" class="form-control" required>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col m-3">
+                            <div class="col mb-3">
                                 <label class="form-label">Endereço</label>
                                 <input type="text" name="loc_address" class="form-control" required>
                             </div>
@@ -71,7 +75,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <div class="col m-3">
+                            <div class="col mb-3">
                                 <label class="form-label">Sobre o Local</label>
                                 <textarea class="form-control" name="loc_resume" rows="6" placeholder="Escreva aqui sobre o Local:" required></textarea>
                             </div>
@@ -123,83 +127,90 @@
                     </div> --}}
                 </div>
             </div>
-            <div class="row mb-5 mt-3">
+            <div class="row mb-5 mt-5">
                 <div class="col-md-12 text-center">
                     <h1>Todas as Locations</h1>
                 </div>
             </div>
 
             <div class="row mb-3">
+                @if (count($locations) < 1)
+                    <h3>Nenhuma Location foi encontrada.</h3>
+                @else
 
-                @foreach ($locations as $location)
+                    @foreach ($locations as $location)
 
-                    <div class="modal modal-blur fade" id="modal-large{{ $location->id }}" tabindex="-1" style="display: none;"
-                        aria-hidden="true">
-                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 style="color: #000000;" class="modal-title">Tem certeza que deseja apagar a Location de {{ $location->loc_name }}</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Se concordar, todos os dados serão apagador permanentamente.
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn me-auto" data-bs-dismiss="modal">Cancelar</button>
-                                    <a href="/Admin/Locations/delete/{{ $location->slug }}" class="btn btn-danger">Apagar</a>
+                        <div class="modal modal-blur fade" id="modal-large{{ $location->id }}" tabindex="-1" style="display: none;"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 style="color: #000000;" class="modal-title">Tem certeza que deseja apagar a Location de {{ $location->loc_name }}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Se concordar, todos os dados serão apagador permanentamente.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn me-auto" data-bs-dismiss="modal">Cancelar</button>
+                                        <a href="/Admin/Locations/delete/{{ $location->slug }}" class="btn btn-danger">Apagar</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-header">
-                                <h2 class="card-title">{{ $location->loc_name }}</h2>
-                                <div class="card-actions">
-                                    <a href="/Admin/Locations/edit/{{ $location->slug }}" class="btn btn-warning">
-                                        <!-- Download SVG icon from http://tabler-icons.io/i/phone -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
-                                            <path
-                                                d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
-                                            <path d="M16 5l3 3" />
-                                        </svg>
-                                        Editar
-                                    </a>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2 class="card-title">{{ $location->loc_name }}</h2>
+                                    <div class="card-actions">
+                                        <a href="/Admin/Locations/edit/{{ $location->slug }}" class="btn btn-warning">
+                                            <!-- Download SVG icon from http://tabler-icons.io/i/phone -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
+                                                <path
+                                                    d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
+                                                <path d="M16 5l3 3" />
+                                            </svg>
+                                            Editar
+                                        </a>
 
-                                    <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-large{{ $location->id }}">
-                                        <!-- Download SVG icon from http://tabler-icons.io/i/mail -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            class="icon icon-tabler icons-tabler-outline icon-tabler-trash">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                            <path d="M4 7l16 0" />
-                                            <path d="M10 11l0 6" />
-                                            <path d="M14 11l0 6" />
-                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                                        </svg>
-                                        Deletar
-                                    </a>
+                                        <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-large{{ $location->id }}">
+                                            <!-- Download SVG icon from http://tabler-icons.io/i/mail -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="icon icon-tabler icons-tabler-outline icon-tabler-trash">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M4 7l16 0" />
+                                                <path d="M10 11l0 6" />
+                                                <path d="M14 11l0 6" />
+                                                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                                <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                            </svg>
+                                            Deletar
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="card-body"
+                                    style="
+                                        background-image: url({{ asset('assets/img/capas_locations/' . $location->loc_capa) }});
+                                        background-size: cover;
+                                        background-repeat: no-repeat;
+                                        padding: 120px; !important">
                                 </div>
                             </div>
-                            <div class="card-body"
-                                style="
-                                    background-image: url({{ asset('assets/img/capas_locations/' . $location->loc_capa) }});
-                                    background-size: cover;
-                                    background-repeat: no-repeat;
-                                    padding: 120px; !important">
-                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                    
+                @endif
+
+
 
             </div>
         </div>

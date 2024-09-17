@@ -4,12 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocationController;
 
 Route::get('/', function () { return view('index'); })->name('home');
+Route::get('/faqs', function () { return view('faqs'); })->name('faqs'); 
+Route::get('/reservation', function () { return view('reservation'); })->name('reservation'); 
 
 Route::group(["prefix" => "Admin"], function () {
 
     Route::get('/', function () { return view('Admin.index'); })->name('home-admin'); 
-    Route::get('/faqs', function () { return view('faqs'); })->name('faqs'); 
-    Route::get('/reservation', function () { return view('reservation'); })->name('reservation'); 
 
     Route::group(["prefix" => "Locations"], function () {
 

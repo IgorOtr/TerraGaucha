@@ -36,7 +36,7 @@
 
     <section>
         <div class="reservation_banner">
-            <img fetchpriority="high" decoding="async" width="1665" height="603" class="wp-block-cover__image-background wp-image-673 entered lazyloaded" alt="restaurant tables" src="https://terragaucha.com/assets/img/bannerReservationPage.webp" data-object-fit="cover" data-lazy-srcset="https://terragaucha.com/assets/img/bannerReservationPage.webp 1665w, https://terragaucha.com/assets/img/bannerReservationPage.webp300x109.webp 300w, https://terragaucha.com/assets/img/bannerReservationPage.webp1024x371.webp 1024w, https://terragaucha.com/assets/img/bannerReservationPage-768x278.webp 768w, https://terragaucha.com/assets/img/bannerReservationPage-1536x556.webp 1536w" data-lazy-sizes="(max-width: 1665px) 100vw, 1665px" data-lazy-src="https://terragaucha.com/assets/img/bannerReservationPage.webp" data-ll-status="loaded" sizes="(max-width: 1665px) 100vw, 1665px" srcset="https://terragaucha.com/assets/img/bannerReservationPage.webp 1665w, https://terragaucha.com/assets/img/bannerReservationPage-300x109.webp 300w, https://terragaucha.com/assets/img/bannerReservationPage-1024x371.webp 1024w, https://terragaucha.com/assets/img/bannerReservationPage-768x278.webp 768w, https://terragaucha.com/assets/img/bannerReservationPage-1536x556.webp 1536w">
+            <img fetchpriority="high" decoding="async" width="1665" height="603" class="" alt="restaurant tables" src="/assets/img/bannerReservationPage.webp" data-object-fit="cover">
         </div>
     </section>
 
@@ -99,7 +99,7 @@
                 </div>
             </div>
             <div>
-                <figure class="wp-block-image size-full"><img decoding="async" width="395" height="351" src="https://terragaucha.com/assets/img/make-a-reservation1.webp" alt="woman smiling" class="wp-image-30641" srcset="https://terragaucha.com/assets/img/make-a-reservation1.webp 395w, https://terragaucha.com/assets/img/make-a-reservation1-300x267.webp 300w" sizes="(max-width: 395px) 100vw, 395px">
+                <figure class="wp-block-image size-full"><img decoding="async" width="395" height="351" src="/assets/img/make-a-reservation1.webp" alt="woman smiling" sizes="(max-width: 395px) 100vw, 395px">
             </figure>
             </div>
         </div>

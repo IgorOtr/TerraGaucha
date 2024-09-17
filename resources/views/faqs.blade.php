@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-N2KN3PWT');
-    </script>
-    <!-- End Google Tag Manager -->
     <meta name="google-site-verification" content="oxJeUc9TWVECgPOb5JYaXze2GSAHvNX6EgHfQmPPD0s" />
     <meta name="keywords" content="near me steakhouse, steak, beef, brazilian barbecue, brazilian meat restaurant, brazilian steak restaurant, brazilian beef restaurant, brazilian bbq steakhouse, fogo de chao brazilian restaurant, restaurant brazilian, brazil food restaurants, churrasco, brazilian bbq near me, brazilian barbecue near me, brazilian steak near me, brazilian barbecue restaurant near me, brazilian meat restaurant near me, brazilian steak restaurant near me, brazilian steakhouse restaurant near me, brazilian food, brazilian restaurant near me, brazilian bbq restaurant near me, brazilian food in brazil, brazilian food restaurant near me, quality meat, brazilian food near me, brazilian cuisine near me, brazilian bbq, bbq brazilian grill">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,16 +22,10 @@
     <meta name="twitter:card" content="summary_large_image" class="yoast-seo-meta-tag" />
     <meta name="twitter:label1" content="Est. reading time" class="yoast-seo-meta-tag" />
     <meta name="twitter:data1" content="3 minutes" class="yoast-seo-meta-tag" />
-</head>
-<body>
-@include('includes/head')
 
-@include('includes/navbar')
-    
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N2KN3PWT" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->	
+    @include('includes/head')
 
+    @include('includes/navbar')
     <div>
         <h1>FAQs</h1>
 

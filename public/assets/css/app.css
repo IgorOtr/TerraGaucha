@@ -101,3 +101,18 @@ body {
 .card-title {
     color: #ffffff;
 }
+
+@media (min-width: 992px) {
+    .navbar-vertical.navbar-expand-lg {
+        width: 18rem !important;
+    }
+
+    .navbar-expand-lg.navbar-vertical~.page-wrapper {
+        margin-left: 18rem;
+    }
+}
+
+.note-editable {
+    background-color: #ffffff;
+}
+

@@ -18,6 +18,15 @@ Route::group(["prefix" => "Admin"], function () {
         Route::post('/update-location', [LocationController::class, 'update'])->name('update-location');
     });
 
+    Route::group(["prefix" => "TerraNews"], function () {
+
+        Route::get('/manage', function () { return view('Admin.manage-news'); })->name('manage-news'); 
+        // Route::get('/edit/{slug}', [LocationController::class, 'edit'])->name('edit-news'); 
+        // Route::get('/delete/{slug}', [LocationController::class, 'destroy'])->name('delete-news'); 
+        // Route::post('/add-news', [LocationController::class, 'store'])->name('add-location');
+        // Route::post('/update-news', [LocationController::class, 'update'])->name('update-news');
+    });
+
     // Route::group(["prefix" => "Contact"], function () {
 
     //     Route::get('/manage', [LocationController::class, 'index'])->name('manage-locations'); 

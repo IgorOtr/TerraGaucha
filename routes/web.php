@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\NewsController;
 
 Route::get('/', function () { return view('index'); })->name('home');
 
@@ -20,11 +21,11 @@ Route::group(["prefix" => "Admin"], function () {
 
     Route::group(["prefix" => "TerraNews"], function () {
 
-        Route::get('/manage', function () { return view('Admin.manage-news'); })->name('manage-news'); 
-        // Route::get('/edit/{slug}', [LocationController::class, 'edit'])->name('edit-news'); 
-        // Route::get('/delete/{slug}', [LocationController::class, 'destroy'])->name('delete-news'); 
-        // Route::post('/add-news', [LocationController::class, 'store'])->name('add-location');
-        // Route::post('/update-news', [LocationController::class, 'update'])->name('update-news');
+        Route::get('/manage', [NewsController::class, 'index'])->name('manage-news'); 
+        Route::get('/edit/{slug}', [NewsController::class, 'edit'])->name('edit-news'); 
+        Route::get('/delete/{slug}', [NewsController::class, 'destroy'])->name('delete-news'); 
+        Route::post('/add-news', [NewsController::class, 'store'])->name('add-news');
+        Route::post('/update-news', [NewsController::class, 'update'])->name('update-news');
     });
 
     // Route::group(["prefix" => "Contact"], function () {

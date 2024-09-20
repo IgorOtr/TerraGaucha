@@ -152,7 +152,7 @@
                                 <a class="dropdown-item" href="./alerts.html">
                                     Ver Promoções e Eventos
                                 </a>
-                                <a class="dropdown-item" href="{{ route('manage-locations') }}">
+                                <a class="dropdown-item" href="{{ route('manage-promo') }}">
                                     Gerenciar Promoções e Eventos
                                 </a>
                             </div>

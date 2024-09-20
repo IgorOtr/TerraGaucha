@@ -24,8 +24,7 @@
     <meta name="twitter:data1" content="3 minutes" class="yoast-seo-meta-tag" />
 
     @include('includes/head')
-
-    @include('includes/navbar')
+    
     <div>
         <h1>FAQs</h1>
 

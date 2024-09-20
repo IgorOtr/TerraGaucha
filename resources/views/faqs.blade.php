@@ -24,9 +24,8 @@
     <meta name="twitter:data1" content="3 minutes" class="yoast-seo-meta-tag" />
 
     @include('includes/head')
-
-    @include('includes/navbar')
-    <div>
+    
+    <div class="default_content container">
         <h1>FAQs</h1>
 
         <h2>1. What is the Full Churrasco Experience?</h2>

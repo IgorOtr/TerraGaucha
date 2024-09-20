@@ -30,69 +30,72 @@
         <div class="container">
             <div class="row mb-4">
                 <div class="col-md-12 text-center">
-                    <h1>Locations</h1>
+                    <h1>Promoções e Eventos</h1>
                 </div>
             </div>
             <div class="row mb-5">
                 <div class="col-md-12 text-center">
-                    <h3>Use este espaço para gerenciar as Locations do site</h3>
+                    <h3>Use este espaço para gerenciar as Promoções e Eventos do site</h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 add__location__form">
                     <div class="row mb-3">
                         <div class="col-md-12 text-center">
-                            <h2>Preecha o formulário para adicionar uma nova Location</h2>
+                            <h2>Preecha o formulário para adicionar uma nova Promoção ou Evento</h2>
                         </div>
                     </div>
-                    <form action="{{ route('add-location') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('add-promotion') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col mb-3">
-                                <label class="form-label">Nome</label>
-                                <input type="text" name="loc_name" class="form-control" required>
-                            </div>
-                            <div class="col mb-3">
-                                <label class="form-label">Email</label>
-                                <input type="email" name="loc_email" class="form-control" required>
-                            </div>
-                            <div class="col mb3">
-                                <label class="form-label">Telefone</label>
-                                <input type="text" name="loc_phone" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col mb-3">
-                                <label class="form-label">Endereço</label>
-                                <input type="text" name="loc_address" class="form-control" required>
+                                <label class="form-label">Título da Promoção / Evento <span style="color: red">*</span></label>
+                                <input type="text" name="promo_title" class="form-control" required>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col mb-3">
-                                <div class="form-label">Foto de capa</div>
-                                <input class="file" type="file" name="loc_capa" accept=".png, .jpg, .jpeg, .webp"
-                                    multiple required>
+                                <label class="form-label">Conteúdo da Promoção / Evento <span style="color: red">*</span></label>
+                                <textarea class="form-control" name="promo_content" rows="6" placeholder="Escreva aqui sobre a Promoção / Evento:" required></textarea>
+                            </div>
+                            <div class="col mb-3">
+                                <label class="form-label">Sub-Conteúdo da Promoção / Evento</label>
+                                <textarea class="form-control" name="promo_subcontent" rows="6" placeholder="Escreva aqui informações adicionais da Promoção / Evento:"></textarea>
+                            </div>
+                            <div class="col mb-3">
+                                <label class="form-label">Restrições da Promoção / Evento</label>
+                                <textarea class="form-control" name="promo_restriction" rows="6" placeholder="Escreva aqui eestrições da Promoção / Evento:"></textarea>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col mb-3">
-                                <label class="form-label">Sobre o Local</label>
-                                <textarea class="form-control" name="loc_resume" rows="6" placeholder="Escreva aqui sobre o Local:" required></textarea>
+                                <div class="form-label">Adicionar um botão?</div>
+                                <select id="select_btn" onchange="unhideBtnRow()" class="form-select" style="height: 40px;">
+                                    <option value="" selected>Selecione uma opção</option>
+                                    <option value="Sim">Sim</option>
+                                    <option value="Nao">Não</option>
+                                </select>
                             </div>
                         </div>
-
+                        <div class="row mb-3 d-none" id="btn_row">
+                            <div class="col mb-3">
+                                <label class="form-label">Conteúdo do botão <span style="color: red">*</span></label>
+                                <input type="text" name="promo_btn_title" class="form-control" >
+                            </div>
+                            <div class="col mb-3">
+                                <label class="form-label">Link do botão <span style="color: red">*</span></label>
+                                <input type="text" name="promo_btn_link" class="form-control" >
+                            </div>
+                        </div>
                         <div class="row mb-3">
                             <div class="col mb-3">
-                                <div class="form-label">Adicione fotos do local <span style="font-size: 12px">(max: 6
-                                        imagens)</span></div>
-                                <input class="file" type="file" name="loc_images[]"
-                                    accept=".png, .jpg, .jpeg, .webp" multiple required>
+                                <div class="form-label">Foto de capa <span style="color: red">*</span></div>
+                                <input class="file" type="file" name="promo_capa" accept=".png, .jpg, .jpeg, .webp" required>
                             </div>
                             <div class="col mb-3">
                                 <div class="form-label">Escolha um Status</div>
-                                <select name="loc_status" class="form-select" style="height: 40px;">
+                                <select name="promo_status" class="form-select" style="height: 40px;">
                                     <option value="" selected>Selecione uma opção</option>
-                                    <option value="Coming soon">Coming soon</option>
                                     <option value="Available">Available</option>
                                     <option value="Unavailable">Unavailable</option>
                                 </select>
@@ -129,23 +132,23 @@
             </div>
             <div class="row mb-5 mt-5">
                 <div class="col-md-12 text-center">
-                    <h1>Todas as Locations</h1>
+                    <h1>Todas as Promoções e Eventos</h1>
                 </div>
             </div>
 
             <div class="row mb-3">
-                @if (count($locations) < 1)
-                    <h3>Nenhuma Location foi encontrada.</h3>
+                @if (count($promotions) < 1)
+                    <h3>Nenhuma promoção e/ou evento foi encontrado.</h3>
                 @else
 
-                    @foreach ($locations as $location)
+                    @foreach ($promotions as $promotion)
 
-                        <div class="modal modal-blur fade" id="modal-large{{ $location->id }}" tabindex="-1" style="display: none;"
+                        <div class="modal modal-blur fade" id="modal-large{{ $promotion->id }}" tabindex="-1" style="display: none;"
                             aria-hidden="true">
                             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 style="color: #000000;" class="modal-title">Tem certeza que deseja apagar a Location de {{ $location->loc_name }}</h5>
+                                        <h5 style="color: #000000;" class="modal-title">Tem certeza que deseja apagar a Location de {{ $promotion->promo_title }}</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
@@ -154,13 +157,13 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn me-auto" data-bs-dismiss="modal">Cancelar</button>
-                                        <a href="/Admin/Locations/delete/{{ $location->slug }}" class="btn btn-danger">Apagar</a>
+                                        <a href="" class="btn btn-danger">Apagar</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        {{-- <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
                                     <h2 class="card-title">{{ $location->loc_name }}</h2>
@@ -205,12 +208,11 @@
                                         padding: 120px; !important">
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
+
                     @endforeach
                     
                 @endif
-
-
 
             </div>
         </div>
@@ -218,6 +220,27 @@
 
     {{-- Desenvolva a partir daqui --}}
 </section>
+
+<script>
+    var select_btn = document.getElementById('select_btn');
+    var btn_row = document.getElementById('btn_row');
+
+    function unhideBtnRow()
+    {
+        if (select_btn.value == 'Sim') {
+
+            btn_row.classList.remove('d-none');
+            btn_row.classList.add('d-flex');
+
+        }else if (select_btn.value == 'Nao' || select_btn.value == ''){
+
+            btn_row.classList.remove('d-flex');
+            btn_row.classList.add('d-none');
+        }
+        
+    }
+    
+</script>
 
 
 @include('Admin/includes/footer')

@@ -49,6 +49,7 @@ class LocationController extends Controller
         $validated = $request->validate([
             'loc_name' => 'required',
             'loc_phone' => 'required',
+            'loc_email' => 'required',
             'loc_address' => 'required',
             'loc_resume' => 'required',
             'loc_status' => 'required'
@@ -63,6 +64,7 @@ class LocationController extends Controller
 
         $location->loc_name = $validated['loc_name'];
         $location->loc_phone = $validated['loc_phone'];
+        $location->loc_email = $validated['loc_email'];
         $location->loc_address = $validated['loc_address'];
         $location->loc_resume = $validated['loc_resume'];
         $location->loc_status = $validated['loc_status'];
@@ -95,8 +97,8 @@ class LocationController extends Controller
     
         }
 
-        $message = 'Location criada com sucesso.';
-        return redirect()->route("manage-locations")->with(['message' => $message]);
+        $success = 'Location criada com sucesso';
+        return redirect()->route("manage-locations", compact('success'));
     }
 
     /**
@@ -121,7 +123,33 @@ class LocationController extends Controller
      */
     public function update(Request $request, Location $location)
     {
-        //
+        $location = Location::find($request->id);
+
+        if ($location) {
+
+            $location->loc_name = $request->loc_name;
+            $location->loc_phone = $request->loc_phone;
+            $location->loc_email = $request->loc_email;
+            $location->loc_address = $request->loc_address;
+            $location->loc_resume = $request->loc_resume;
+            $location->loc_status = $request->loc_status;
+
+            if ($request->hasFile('loc_capa')) {
+
+                $imgCapa = $request->file('loc_capa');
+                $img_name = md5($imgCapa->getClientOriginalName().time()) . '.' . $imgCapa->getClientOriginalExtension();
+                $imgCapa->move('assets/img/capas_locations', $img_name);
+
+                $location->loc_capa = $img_name;
+            }
+
+            $location->save();
+
+            sleep(2);
+
+            $success = 'Location atualizada com sucesso';
+            return redirect()->route("manage-locations", compact('success'));
+        }
     }
 
     /**
@@ -135,10 +163,13 @@ class LocationController extends Controller
             return abort(404);
 
         } else {
+
             $location = DB::table('locations')->where('slug', $slug)->delete();
 
-            $message = 'Location removida com sucesso.';
-            return redirect()->route("manage-locations")->with(['message' => $message]);
+            sleep(2);
+
+            $success = 'Location removida com sucesso';
+            return redirect()->route("manage-locations", compact('success'));
         }
 
     }

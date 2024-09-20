@@ -82,6 +82,10 @@ body {
     background-color: #99262d;
 }
 
+.btn-primary2 {
+    background-color: #1289f8;
+}
+
 .btn-primary:hover {
     background-color: #99262e79;
 }
@@ -101,3 +105,18 @@ body {
 .card-title {
     color: #ffffff;
 }
+
+@media (min-width: 992px) {
+    .navbar-vertical.navbar-expand-lg {
+        width: 18rem !important;
+    }
+
+    .navbar-expand-lg.navbar-vertical~.page-wrapper {
+        margin-left: 18rem;
+    }
+}
+
+.note-editable {
+    background-color: #ffffff;
+}
+

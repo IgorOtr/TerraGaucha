@@ -10,12 +10,90 @@
 
 .container {
     width: 1200px !important;
+    max-width: 1200px !important;
 }
 
 .nav-link {
     color: #d9d9d9 !important;
     font-size: 13px;
 }
+
+footer {
+    font-family: Jost;
+    width: 964px;
+    margin: 40px auto;
+}
+
+footer h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+}
+footer ul {
+    padding: 0;
+}
+footer li {
+    list-style: none;
+}
+footer a {
+    text-decoration: none;
+    color: #212121;
+    font-size: 15px;
+    font-weight: 300;
+}
+.footerFirstDiv {
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 24px;
+    align-items: center;
+}
+.terragaucha-footer-separator {
+    background-color: #EFEFEF;
+    flex-basis: 2px !important;
+    height: 116px !important;
+}
+.terragaucha-footer-list-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.terragaucha-menu-social-container {
+    display:flex;
+    justify-content: space-between;
+}
+
+.terragaucha-menu-social-container-menu  {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: inline-flex;
+    gap: 5px;
+    letter-spacing: .155em;
+}
+
+.terragaucha-menu-social-container-menu a {
+    color: #212121;
+    font-size: 9px;
+    font-weight: 400;
+}
+.terragaucha-menu-social-container-menu li:not(:first-child)::before {
+    content: "■";
+    margin-right: 5px;
+    font-size:10px;
+    color:#99262D;
+}
+.terragaucha-footer-copyright {
+    display: flex;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
 .btn-reservationNav a {
     border-radius: 0;
     background-color: #99262D;

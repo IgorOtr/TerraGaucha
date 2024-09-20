@@ -25,7 +25,7 @@
 
     @include('includes/head')
     
-    <div>
+    <div class="default_content container">
         <h1>FAQs</h1>
 
         <h2>1. What is the Full Churrasco Experience?</h2>

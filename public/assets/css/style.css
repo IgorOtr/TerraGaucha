@@ -162,3 +162,31 @@ input[type=zip], input[type=text], input[type=email], input[type=file], input[ty
     text-align: center;
     color: #272727;
 }
+.default_content {
+    padding: 70px 15px 0;
+}
+
+.default_content h1 {
+    font-size: 70px;
+    font-family: Bodoni Elegant;
+    color: #272727;
+    border-image: linear-gradient(90deg, #a49788 10%, #99262d 10%, #99262d 55%, #fff 55%) 5;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    margin-bottom: 20px;
+    font-style: italic !important;
+}
+
+.default_content h2 {
+    font-size: 24px;
+    font-family: Bodoni Elegant;
+    color: #000;
+    font-weight: 300;
+}
+
+.default_content p {
+    font-size: 17px;
+    font-family:Jost;
+    color: #000;
+    font-weight: 300;
+}

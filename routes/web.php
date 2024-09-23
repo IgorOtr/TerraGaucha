@@ -8,6 +8,7 @@ use App\Http\Controllers\PromocoesController;
 Route::get('/', function () { return view('index'); })->name('home');
 Route::get('/faqs', function () { return view('faqs'); })->name('faqs'); 
 Route::get('/reservation', function () { return view('reservation'); })->name('reservation'); 
+Route::get('/group-dining', function () { return view('group-dining'); })->name('group-dining'); 
 
 Route::group(["prefix" => "Admin"], function () {
 

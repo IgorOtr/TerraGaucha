@@ -16,21 +16,6 @@ class PromocoesController extends Controller
         $promotions = DB::table('promocoes')->get();
         return view('Admin.manage-promotions', compact('promotions'));
     }
-
-    public function toAscii($str, $replace = array(), $delimiter = '-')
-	{
-		if (!empty($replace)) {
-			$str = str_replace((array)$replace, ' ', $str);
-		}
-		$clean = str_replace('�', 'c', $str);
-		$clean = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
-		$clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $clean);
-		$clean = strtolower(trim($clean, '-'));
-		$clean = preg_replace("/[\/_|+ -]+/", $delimiter, $clean);
-
-		return $clean;
-	}
-
     /**
      * Store a newly created resource in storage.
      */
@@ -70,24 +55,19 @@ class PromocoesController extends Controller
 
         $promo->save();
 
+        sleep(2);
+
         $success = 'Promoção/Evento criado(a) com sucesso';
         return redirect()->route("manage-promo", compact('success'));
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Promocoes $promocoes)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Promocoes $promocoes)
+    public function edit(Promocoes $promocoes, string $id)
     {
-        //
+        $promotions = DB::table('promocoes')->where('id', $id)->get();
+        return view('Admin.edit-promotions', compact('promotions'));
     }
 
     /**
@@ -95,14 +75,58 @@ class PromocoesController extends Controller
      */
     public function update(Request $request, Promocoes $promocoes)
     {
-        //
+        $promo = Promocoes::find($request->id);
+
+        if ($promo) {
+
+            $promo->promo_title = $request->promo_title;
+            $promo->promo_content = $request->promo_content;
+            $promo->promo_subcontent = $request->promo_subcontent;
+            $promo->promo_restriction = $request->promo_restriction;
+            $promo->promo_status = $request->promo_status;
+
+            if ($request->hasFile('promo_capa')) {
+
+                $imgCapa = $request->file('promo_capa');
+                $img_name = md5($imgCapa->getClientOriginalName().time()) . '.' . $imgCapa->getClientOriginalExtension();
+                $imgCapa->move('assets/img/capas_promo', $img_name);
+
+                $promo->promo_capa = $img_name;
+            }
+
+            if ($request->promo_btn_title != null and $request->promo_btn_title != null) {
+
+                $promo->promo_btn_link = $request->promo_btn_link;
+                $promo->promo_btn_title = $request->promo_btn_title;
+            }
+
+            $promo->save();
+
+            sleep(2);
+
+            $success = 'Promoção/Evento atualizado(a) com sucesso';
+            return redirect()->route("manage-promo", compact('success'));
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Promocoes $promocoes)
+    public function destroy(Promocoes $promocoes, string $id)
     {
-        //
+        $promocoes = DB::table('promocoes')->where('id', $id)->get();
+
+        if (!$promocoes) {
+            return abort(404);
+
+        } else {
+
+            $location = DB::table('promocoes')->where('id', $id)->delete();
+
+            sleep(2);
+
+            $success = 'Promoção/Evento removido com sucesso';
+            return redirect()->route("manage-promo", compact('success'));
+        }
     }
 }

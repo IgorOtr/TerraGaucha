@@ -148,7 +148,7 @@
                             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 style="color: #000000;" class="modal-title">Tem certeza que deseja apagar a Location de {{ $promotion->promo_title }}</h5>
+                                        <h5 style="color: #000000;" class="modal-title">Tem certeza que deseja apagar a promoção/evento: {{ $promotion->promo_title }}?</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
@@ -157,18 +157,18 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn me-auto" data-bs-dismiss="modal">Cancelar</button>
-                                        <a href="" class="btn btn-danger">Apagar</a>
+                                        <a href="/Admin/Promocoes-e-Eventos/delete/{{ $promotion->id }}" class="btn btn-danger">Apagar</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        {{-- <div class="col-md-6">
+                        <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h2 class="card-title">{{ $location->loc_name }}</h2>
+                                    <h2 class="card-title">{{ $promotion->promo_title }}</h2>
                                     <div class="card-actions">
-                                        <a href="/Admin/Locations/edit/{{ $location->slug }}" class="btn btn-warning">
+                                        <a href="/Admin/Promocoes-e-Eventos/edit/{{ $promotion->id }}" class="btn btn-warning">
                                             <!-- Download SVG icon from http://tabler-icons.io/i/phone -->
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -183,7 +183,7 @@
                                             Editar
                                         </a>
 
-                                        <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-large{{ $location->id }}">
+                                        <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-large{{ $promotion->id }}">
                                             <!-- Download SVG icon from http://tabler-icons.io/i/mail -->
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -202,13 +202,13 @@
                                 </div>
                                 <div class="card-body"
                                     style="
-                                        background-image: url({{ asset('assets/img/capas_locations/' . $location->loc_capa) }});
+                                        background-image: url({{ asset('assets/img/capas_promo/' . $promotion->promo_capa) }});
                                         background-size: cover;
                                         background-repeat: no-repeat;
                                         padding: 120px; !important">
                                 </div>
                             </div>
-                        </div> --}}
+                        </div>
 
                     @endforeach
                     

@@ -32,10 +32,10 @@ Route::group(["prefix" => "Admin"], function () {
     Route::group(["prefix" => "Promocoes-e-Eventos"], function () {
 
         Route::get('/manage', [PromocoesController::class, 'index'])->name('manage-promo'); 
-        // Route::get('/edit/{slug}', [NewsController::class, 'edit'])->name('edit-news'); 
-        // Route::get('/delete/{slug}', [NewsController::class, 'destroy'])->name('delete-news'); 
+        Route::get('/edit/{id}', [PromocoesController::class, 'edit'])->name('edit-promo'); 
+        Route::get('/delete/{id}', [PromocoesController::class, 'destroy'])->name('delete-promo'); 
         Route::post('/add-promotion', [PromocoesController::class, 'store'])->name('add-promotion');
-        // Route::post('/update-news', [NewsController::class, 'update'])->name('update-news');
+        Route::post('/update-promotion', [PromocoesController::class, 'update'])->name('update-promotion');
     });
 
     // Route::group(["prefix" => "Contact"], function () {

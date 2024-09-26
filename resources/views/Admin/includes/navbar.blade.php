@@ -161,41 +161,12 @@
                     </div>
                 </li>
 
-                {{-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
-                        data-bs-auto-close="false" role="button" aria-expanded="false">
-                        <span
-                            class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="icon icon-tabler icons-tabler-outline icon-tabler-tools-kitchen-2">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path
-                                    d="M19 3v12h-5c-.023 -3.681 .184 -7.406 5 -12zm0 12v6h-1v-3m-10 -14v17m-3 -17v3a3 3 0 1 0 6 0v-3" />
-                            </svg>
-                        </span>
-                        <span class="nav-link-title">
-                            Menu
-                        </span>
-                    </a>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-menu-columns">
-                            <div class="dropdown-menu-column">
-                                <a class="dropdown-item" href="./alerts.html">
-                                    Ver Menu
-                                </a>
-                                <a class="dropdown-item" href="./alerts.html">
-                                    Gerenciar Categorias
-                                </a>
-                                <a class="dropdown-item" href="./alerts.html">
-                                    Gerenciar Items do Menu
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-                </li> --}}
+                <div style="position: absolute; bottom: 0px; width: 100%;">
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button class="btn btn-danger w-100 p-2" type="submit">Sair</button>
+                    </form>
+                </div>
             </ul>
         </div>
     </div>

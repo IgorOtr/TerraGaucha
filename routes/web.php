@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PromocoesController;
@@ -44,11 +45,10 @@ Route::middleware('auth')->group(function () {
             Route::post('/update-promotion', [PromocoesController::class, 'update'])->name('update-promotion');
         });
     
-        // Route::group(["prefix" => "Contact"], function () {
+        Route::group(["prefix" => "Contact"], function () {
     
-        //     Route::get('/manage', [LocationController::class, 'index'])->name('manage-locations'); 
-        //     Route::post('/add-location', [LocationController::class, 'store'])->name('add-location');
-        // });
+            Route::get('/manage', [ContactController::class, 'index'])->name('manage-contacts'); 
+        });
     
     });
 });

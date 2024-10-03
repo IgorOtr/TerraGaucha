@@ -268,3 +268,444 @@ input[type=zip], input[type=text], input[type=email], input[type=file], input[ty
     color: #000;
     font-weight: 300;
 }
+
+.terra-club-wrapper h2 {
+    font-family: Bodoni Elegant;
+    font-size: 95px;
+    font-weight: 300;
+    line-height: 90px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #99262D !important;
+    border-image: linear-gradient(90deg, #a49788 10%, #99262d 10%, #99262d 55%, #99262d 55%) 5;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    margin-bottom: 33px;
+    font-style: italic !important;
+}
+
+.terra-club-wrapper {
+    border-bottom: 25px solid #99262D;
+    padding: 150px 0;
+}
+
+.wp-block-cover .wp-block-cover__image-background, .wp-block-cover video.wp-block-cover__video-background, .wp-block-cover-image .wp-block-cover__image-background, .wp-block-cover-image video.wp-block-cover__video-background {
+    border: none;
+    bottom: 0;
+    box-shadow: none;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    max-height: none;
+    max-width: none;
+    object-fit: cover;
+    outline: none;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+    object-position: 50% 50%;
+}
+
+.terra-club-wrapper .terra-club-wrapper-subtitle {
+    font-family: Jost;
+    font-size: 27px;
+    font-weight: 300;
+    line-height: 43px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 30px;
+    color: #fff !important;
+}
+
+.wp-image-39132 {
+    margin-left: -25% !important;
+}
+
+.gradient-overlay::after {
+    content: "";
+    background: linear-gradient(90deg, transparent 0%, transparent 30%, #000 50%);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.wp-block-cover .wp-block-cover__inner-container, .wp-block-cover-image .wp-block-cover__inner-container {
+    color: inherit;
+    width: 100%;
+    z-index: 11111111;
+}
+
+.is-layout-constrained > :last-child {
+    margin-block-end: 0;
+}
+
+.is-layout-constrained > :first-child {
+    margin-block-start: 0;
+}
+
+
+
+.is-layout-flex {
+    gap: 24px;
+}
+
+.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+    max-width: 580px;
+    margin-left: auto !important;
+    margin-right: 350px !important;
+}
+
+:where(.wp-site-blocks) > * {
+    margin-block-start: 0px;
+    margin-block-end: 0;
+}
+
+:where(.wp-block-group.wp-block-group-is-layout-constrained) {
+    position: relative;
+}
+
+.wp-block-cover, .wp-block-cover-image {
+    align-items: center;
+    background-position: 50%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    min-height: 430px;
+    overflow: hidden;
+    overflow: clip;
+    position: relative;
+}
+
+.terra-club-wrapper input[type=submit] {
+    background-color: #99262D !important;
+    display: block;
+    width: 100% !important;
+    border: none;
+    outline: none;
+    font-family: Jost;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 42px;
+    letter-spacing: 0.18em;
+    text-align: center;
+    color: #fff;
+}
+
+#mc_embed_signup .button {
+    clear: both;
+    background-color: #111;
+    border: 0 none;
+    border-radius: 4px;
+    transition: all 0.23s ease-in-out 0s;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: normal;
+    height: 32px;
+    line-height: 32px;
+    margin: 0 5px 10px 0;
+    padding: 0 22px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: top;
+    white-space: nowrap;
+    width: fit-content;
+    width: -moz-fit-content;
+}
+
+#mc_embed_signup .indicates-required {
+    text-align: right;
+    font-size: 11px;
+    margin-right: 4%;
+}
+
+#mc_embed_signup .indicates-required, #mc_embed_signup .nowrap {
+    color: var(#a49788) !important;
+}
+
+.group-dinning-large-group h2 {
+    font-family: Bodoni Elegant;
+    font-size: 49px;
+    font-weight: 300;
+    line-height: 46px;
+    letter-spacing: 0em;
+    text-align: left;
+    font-style: italic !important;
+    border-image: linear-gradient(90deg, var(--wp--preset--color--terragaucha-golden) 10%, var(--wp--preset--color--terragaucha-red) 10%, var(--wp--preset--color--terragaucha-red) 55%, #fff 55%) 5;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    padding-bottom: 28px;
+    margin-bottom: 17px;
+}
+
+.gift-cards-banner-wrapper {
+    min-height: 600px;
+    border-bottom: 20px solid #99262D;
+}
+
+.wp-block-cover, .wp-block-cover-image {
+    align-items: center;
+    background-position: 50%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    overflow: clip;
+    padding: 1em;
+    position: relative;
+}
+
+.gift-cards-banner-wrapper h2 {
+    font-family: Bodoni Elegant;
+    font-size: 72px;
+    font-weight: 300;
+    line-height: 75px;
+    letter-spacing: 4px;
+    text-align: start;
+    color: #ffffff;
+}
+.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+    max-width: 580px;
+    margin-left: 300px !important;
+    margin-right: 350px !important;
+}
+
+.gift-cards-content-wrapper {
+    padding-top: 70px;
+}
+
+.gift-cards-content-wrapper .wp-block-columns {
+    gap: 100px;
+}
+
+.gift-cards-content-wrapper .gift-cards-content-wrapper-img {
+    margin-top: -150px;
+    position: relative;
+    z-index: 9;
+}
+
+.gift-cards-content-wrapper h2 {
+    font-family: Jost;
+    font-size: 37px;
+    font-weight: 300;
+    line-height: 55px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+body .is-layout-flex {
+    display: flex;
+}
+
+.gift-card-wrapper-e-gift {
+    background-color: #272727;
+    border-radius: 25px;
+    margin-right: 25px;
+    height: 250px;
+    max-width: 460px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.gift-card-wrapper-e-gift a {
+    height: 250px;
+    width: 460px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 40px;
+    z-index: 9;
+}
+
+.gift-card-wrapper-e-gift::after {
+    content: "";
+    position: absolute;
+    background-color: #45E4EE;
+    width: 200px;
+    height: 50px;
+    margin-left: 300px;
+}
+
+.gift-cards-content-wrapper h3 {
+    font-family: Jost;
+    font-size: 29px;
+    font-weight: 400;
+    line-height: 41px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #99262D;
+    margin-top: 20px;
+    margin-left: 20px;
+    font-style: normal;
+}
+
+.gift-cards-content-wrapper p {
+    font-family: Jost;
+    font-size: 21px;
+    font-weight: 300;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
+    margin-left: 20px;
+}
+
+.gift-cards-content-wrapper .wp-block-buttons {
+    margin-left: 20px;
+}
+
+.gift-cards-content-wrapper .wp-block-button a {
+    font-family: Jost;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0.265em;
+    text-align: left;
+    color: #D9D9D9;
+    padding: 5px 50px;
+    margin: 30px 0 60px;
+}
+
+.wp-element-button, .wp-block-button__link {
+    border-radius: 0;
+    background-color: #99262D;
+}
+
+.gift-card-wrapper-m-gift {
+    background-color: #272727;
+    border-radius: 25px;
+    margin-right: 25px;
+    height: 250px;
+    max-width: 460px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.wp-block-image {
+    margin: 0 0 1em;
+}
+
+.gift-card-wrapper-m-gift a {
+    height: 250px;
+    width: 460px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 40px;
+    z-index: 9;
+}
+
+.gift-card-wrapper-m-gift::after {
+    content: "";
+    position: absolute;
+    background-color: #EEBF45;
+    width: 200px;
+    height: 50px;
+    margin-left: 300px;
+}
+
+.location-map img {
+    object-fit: contain !important;
+}
+
+.locations-heading {
+    background-color: #FAFAFA;
+}
+
+.our_story_banner {
+    border-image: linear-gradient(to right, #a49788 20%, #99262d 20%, #99262d 85%) 5;
+    border-bottom: 20px solid;
+    padding-bottom: 15px;
+    height: 758px;
+}
+
+.our-story-timeline-wrapper {
+    padding-bottom: 800px;
+    margin-top: 70px;
+}
+
+.our-story-timeline-wrapper .wp-block-cover__image-background {
+    object-fit: contain;
+    object-fit: contain;
+    bottom: 0;
+    top: inherit;
+    height: 900px;
+}
+
+.our-story-timeline-wrapper .as-grid {
+    display: grid !important;
+    gap: 0;
+    row-gap: 100px !important;
+    grid-template-columns: 1fr 60px 1fr;
+    grid-template-areas:
+        "g2015 gseparator g2015-info"
+        "g2018-info gseparator g2018"
+        "g2022 gseparator g2022-info";
+}
+
+.our-story-timeline-wrapper .as-grid .g2015 {
+    grid-area: g2015;
+}
+
+@media (min-width: 600px) {
+    .our-story-timeline-wrapper-img-left figure::after {
+        content: "";
+        height: 20px;
+        background-color: #a49788;
+        position: relative;
+        display: block;
+        margin-top: -40px;
+        margin-left: 76px;
+        width: 1060px;
+    }
+}
+
+.our-story-timeline-wrapper-img-left {
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.our-story-timeline-wrapper .as-grid .g2015-info {
+    grid-area: g2015-info;
+    max-width: 350px;
+}
+
+.our-story-timeline-wrapper-img-right {
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.our-story-timeline-wrapper h2 {
+    font-family: Bodoni Elegant;
+    font-style: italic !important;
+    font-size: 95px;
+    font-weight: 300;
+    line-height: 90px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #272727 !important;
+    border-image: linear-gradient(to right, #a49788 0%, #a49788 85%, #99262d 85%, #99262d 100%) 5;
+    border-bottom: 4px solid;
+    padding-bottom: 15px;
+}
+
+.our-story-timeline-wrapper p {
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 43px;
+    letter-spacing: 0em;
+    color: #000 !important;
+    margin-top: 20px;
+}

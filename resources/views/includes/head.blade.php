@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     
 
 </head>
@@ -47,7 +48,7 @@
                         <a class="nav-link" href="gift-cards">GIFT CARDS</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="terra-club">TERRA CLUB</a>
+                        <a class="nav-link" href="{{ route('terra-club') }}">TERRA CLUB</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="contact-us">CONTACT US</a>
@@ -66,7 +67,7 @@
                     </ul>
                 </div>
                 <div class="btn-reservationNav">
-                    <a class="" href="https://terragaucha.com/reservation/">MAKE A RESERVATION</a>
+                    <a class="" href="{{ route('reservation') }}">MAKE A RESERVATION</a>
                 </div>
             </div>
         </nav>

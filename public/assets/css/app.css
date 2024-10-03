@@ -120,3 +120,16 @@ body {
     background-color: #ffffff;
 }
 
+.table-bg th{
+    background-color: #99262d !important;
+    color: #ffffff !important;
+}
+
+.table-lines {
+    border-bottom: 1px solid #99262d;
+}
+
+.table-lines td {
+    color: #ffffff !important;
+}
+

@@ -37,7 +37,7 @@
         </div>
     </section>
 
-    <section>
+    <section style="margin-bottom: 80px;">
         <div class="reservation-content-wrapper container">
             <div>
                 <h1>GROUP DINING</h1>
@@ -45,22 +45,22 @@
             <div>
                 <p class="info">Let Terra Gaucha make your event even more memorable. Book your group reservation, and enjoy the exclusive and upscale atmosphere of our private and semi-private spaces for:</p>
             </div>
-            <div class="">
-                <div class="">
+            <div class="" style="display: flex;">
+                <div class="" style="margin-right: 20px;">
                     <ul class="">
                         <li>BIRTHDAY PARTIES</li>
                         <li>CORPORATE MEETINGS</li>
                         <li>INTIMATE COMPANY GATHERINGS</li>
                     </ul>
                 </div>
-                <div class="">
+                <div class="" style="margin-right: 20px;">
                     <ul class="wp-block-list">
                         <li>WEDDING REHEARSAL DINNERS</li>
                         <li>HOLIDAY PARTIES</li>
                         <li>ANNIVERSARIES</li>
                     </ul>
                 </div>
-                <div class="">
+                <div class="" style="margin-right: 20px;">
                     <ul class="wp-block-list">
                         <li>ENGAGEMENT PARTIES</li>
                         <li>AND MORE</li>

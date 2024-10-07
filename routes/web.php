@@ -10,11 +10,13 @@ use App\Http\Controllers\PromocoesController;
 Route::get('/', function () { return view('index'); })->name('home');
 Route::get('/locations', function () { return view('locations'); })->name('locations');
 Route::get('/our-story', function () { return view('our-story'); })->name('our-story');
+Route::get('/contact-us', function () { return view('contact-us'); })->name('contact-us');
 Route::get('/faqs', function () { return view('faqs'); })->name('faqs'); 
 Route::get('/reservation', function () { return view('reservation'); })->name('reservation'); 
 Route::get('/group-dining', function () { return view('group-dining'); })->name('group-dining'); 
 Route::get('/terra-club', function () { return view('terra-club'); })->name('terra-club'); 
 Route::get('/gift-cards', function () { return view('gift-cards'); })->name('gift-cards'); 
+Route::get('/careers', function () { return view('careers'); })->name('careers'); 
 
 Route::middleware('auth')->group(function () {
 

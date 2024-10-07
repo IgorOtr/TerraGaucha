@@ -709,3 +709,119 @@ body .is-layout-flex {
     color: #000 !important;
     margin-top: 20px;
 }
+
+.carrers-wrapper {
+    border-bottom: 25px solid #99262D;
+    padding: 150px 0;
+}
+
+.carrers-wrapper h1 {
+    font-family: Bodoni Elegant;
+    font-size: 95px;
+    font-weight: 300;
+    line-height: 90px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #99262D !important;
+    border-image: linear-gradient(90deg, #a49788 10%, #99262D 10%, #99262D 55%, #99262D 55%) 5;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    margin-bottom: 33px;
+    font-style: italic !important;
+}
+
+.carrers-wrapper .carrers-wrapper-subtitle {
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 43px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 30px;
+    color: #D9D9D9;
+}
+
+.carrers-wrapper .carrers-wrapper-subtitle2 {
+    font-family: Jost;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.carrers-wrapper input[type=submit] {
+    background-color: #99262D !important;
+    display: block;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: Jost;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 42px;
+    letter-spacing: 0.18em;
+    text-align: center;
+    color: #fff;
+}
+
+.contact-us-wrapper h1 {
+    font-family: Bodoni Elegant;
+    font-size: 95px;
+    font-weight: 300;
+    line-height: 90px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #99262D !important;
+    border-image: linear-gradient(90deg, #a49788 10%, #99262D 10%, #99262D 55%, #99262D 55%) 5;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    margin-bottom: 33px;
+    font-style: italic !important;
+}
+
+.contact-us-wrapper .contact-us-subtitle {
+    font-family: Jost;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.wpcf7-list-item-label {
+    color: #d9d9d9;
+    font-weight: 300;
+    padding-left: 28px;
+    display: inline-flex;
+    margin-top: -20px;
+}
+
+.agree-message {
+    font-family: Jost;
+    font-size: 11px;
+    font-weight: 300;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #d9d9d9;
+}
+
+.contact-us-wrapper input[type=submit] {
+    background-color: #99262D !important;
+    display: block;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: Jost;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 42px;
+    letter-spacing: 0.18em;
+    text-align: center;
+    color: #fff;
+}

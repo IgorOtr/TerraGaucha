@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeGalleryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PromocoesController;
@@ -54,6 +55,11 @@ Route::middleware('auth')->group(function () {
         Route::group(["prefix" => "Contact"], function () {
     
             Route::get('/manage', [ContactController::class, 'index'])->name('manage-contacts'); 
+        });
+
+        Route::group(["prefix" => "Home-Gallery"], function () {
+    
+            Route::get('/manage', [HomeGalleryController::class, 'index'])->name('manage-home-gallery'); 
         });
     
     });
